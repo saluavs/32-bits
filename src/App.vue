@@ -26,7 +26,7 @@
               >
             </li>
             <li>
-              <router-link class="nav-link p-3" to="/ventas"
+              <router-link class="nav-link p-3" to="/venta"
                 >Ventas</router-link
               >
             </li>

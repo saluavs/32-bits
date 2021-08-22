@@ -3,33 +3,24 @@
     <div class="my-5">
       <label for="buscarPorId">
         <b>Búsqueda de Juegos</b>
-        <br />
         <input
           type="text"
           placeholder="0001,0002,0003,etc.."
           :value="$store.state.buscarPorId"
           @input="$store.commit('SET_BUSQUEDA', $event.target.value)"
         />
-        <ul>
-          <li
-            v-for="game in $store.getters.gamesDisponiblesPorId"
-            :key="game.codigo"
-            :style="{ backgroundColor: game.color }"
-          >
-            {{ game.codigo }} | {{ game.nombre }} | {{ game.stock }} |
-            {{ game.precio }}
-          </li>
-        </ul>
+        
         <!--<input class="form-control" type="text" v-model="buscarPorId" placeholder="0001,0002,0003,etc"> -->
       </label>
     </div>
-    <p>Número de juegos disponibles: {{ games.length }}</p>
-    <p>Cantidad de juegos totales: {{ gamesTotal }}</p>
-
+    <div style="background-color: black; width:25%; opacity:0.8">
+      <p><strong>Número de juegos disponibles: {{ games.length }}</strong></p>
+      <p><strong>Cantidad de juegos totales: {{ $store.getters.gamesPrice }}</strong></p>
+    </div>
     <h3 class="mt-5">Listado de Juegos</h3>
     <table class="table table-dark table-striped">
       <thead>
-        <tr>
+        <tr style="background: black">
           <th>Código</th>
           <th>Nombre</th>
           <th>Stock</th>
@@ -54,6 +45,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+
 export default {
   name: "Busqueda",
   data: function() {
@@ -74,4 +66,18 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+.my-5, h3 {
+color: white;
+  background-color: black ;
+  width:25%;
+  opacity:0.8;
+  padding-inline-start: 10px;
+  padding: 10px;
+}
+p {
+  color:white;
+  padding-inline-start: 10px
+}
+</style>
